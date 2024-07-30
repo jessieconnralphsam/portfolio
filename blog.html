@@ -387,10 +387,9 @@
         <!--Content Section-->
         <!-- id="services" class="scrollto clearfix" -->
         <div>
-
             <div class="row no-padding-bottom clearfix">
 
-                <h1 class="text-center">Authentication</h1>
+                <h1 class="text-center">Authentication with JWT</h1>
 
                 <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
 
@@ -419,6 +418,71 @@
                 <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
                     <img src="images/user-images/jwt2.png" alt="iot">
                 </div>
+                
+            </div>
+        </div>
+
+        <div>
+            <div class="row no-padding-bottom clearfix">
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
+
+                    <blockquote class="testimonial text-right bigtest">
+                        <a>
+                            <span>Understanding JWT Authentication</span>
+                        </a>
+                        <footer>|  A Comprehensive Guide</footer>
+                    </blockquote>
+                </div>
+                
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="section-heading">
+                        <h3>How JWT Authentication Works?</h3>
+                        <h2 class="section-title">1. User Login</h2>
+                        <p class="section-subtitle">When a user attempts to log in, the server authenticates the user's credentials (typically username and password). Upon successful authentication, the server generates a JWT containing the user's information and signs it with a secret key.</p>
+                        <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; max-width: 100%; box-sizing: border-box;">
+                            <code style="color: #c7254e; background-color: #f9f2f4; padding: 2px 4px; border-radius: 4px; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; display: block;">
+                            const jwt = require('jsonwebtoken');
+                            const token = jwt.sign({ userId: user.id }, 'your-256-bit-secret', { expiresIn: '1h' });
+                            </code>
+                        </pre>     
+                    </div>
+                    <div class="section-heading">
+                        <h2 class="section-title">2. Client Receives JWT</h2>
+                        <p class="section-subtitle">The server sends the generated JWT back to the client. The client stores this token, typically in local storage or a cookie.</p>
+                        <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; max-width: 100%; box-sizing: border-box;">
+                            <code style="color: #c7254e; background-color: #f9f2f4; padding: 2px 4px; border-radius: 4px; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; display: block;">
+                                localStorage.setItem('token', token);
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="section-heading">
+                        <h2 class="section-title">3. Client Makes Authenticated Requests</h2>
+                        <p class="section-subtitle">For subsequent requests, the client includes the JWT in the Authorization header.</p>
+                        <p>GET /protected-resource <br>
+                            Authorization: Bearer <your-JWT>
+                            </p>
+                    </div>
+                    <div class="section-heading">
+                        <h2 class="section-title">4. Server Verifies JWT</h2>
+                        <p class="section-subtitle">Upon receiving a request with a JWT, the server verifies the token’s signature to ensure its integrity and authenticity.</p>
+                        <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; max-width: 100%; box-sizing: border-box; text-align: left;">
+                            <code style="color: #c7254e; background-color: #f9f2f4; padding: 2px 4px; border-radius: 4px; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; display: block;">
+                                const token = req.headers.authorization.split(' ')[1];
+                                jwt.verify(token, 'your-256-bit-secret', (err, decoded) => {
+                                if (err) {
+                                    return res.status(401).send('Unauthorized');
+                                }
+                                req.user = decoded;
+                                next();
+                                });
+                            </code>
+                        </pre>                        
+                    </div>
+                </div>
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <p>JWTs are widely used for authentication because they allow you to verify the identity of a user without needing to store session data on the server. When a user logs in, the server generates a JWT and sends it to the client. The client includes this token in the Authorization header of subsequent requests. The server can then verify the token to authenticate the user.</p>
+                </div>
+                
             </div>
         </div>
 
