@@ -138,11 +138,11 @@
 
                 <div class="section-heading">
                     <h1>Jessie Conn Ralph M. Sam</h1>
-                    <h2>Software Developer & System Admin</h2>
+                    <h2 style="color: white; text-decoration: underline;">System Admin & Software Developer</h2>
                 </div>
 
                 <!--Call to Action-->
-                <a href="#" class="button">“Experience is the name everyone gives to their mistakes.” – Oscar Wilde</a>
+                <a href="#" class="button" style="color: white;">“Experience is the name everyone gives to their mistakes.” – Oscar Wilde</a>
                 <!--End Call to Action-->
 
             </div>
@@ -159,11 +159,36 @@
 
                 <div class="col-3">
                     <div class="section-heading">
-                        <h3>Good Day! 👋</h3>
+                        <!-- <h3>Good Day! 👋</h3> -->
                         <h2 class="section-title">How Can I Help You?</h2>
-                        <p>Hello, and welcome to my portfolio. I am Jessie Conn Ralph Sam, a graduate with a Bachelor of Science in Information Technology, specializing in Database Management. Currently, I am employed as a web developer at a private international company based in the Philippines. In addition, I am working on my own platform as a service (PaaS) project focused on data management & analytics for IoT devices and third-party applications. I am also a member of the codebility community as a backend developer. In these roles & projects, I apply my expertise in the following areas:
+                        <p class="section-subtitle">Hello, and welcome to my portfolio. I am Jessie Conn Ralph Sam, a graduate with a Bachelor of Science in Information Technology, specializing in Database Management. Currently, I am employed as a web developer at a private international company based in the Philippines. In addition, I am working on my own platform as a service (PaaS) project focused on data management & analytics for IoT devices and third-party applications. I am also a member of the codebility community as a backend developer. In these roles & projects, I apply my expertise in the following areas:
                         </p> <br>
-                        <p class="section-subtitle">If you are interested in collaboration or have any inquiries, please feel free to contact me. <br> Thank you! 🫡</p>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                            const text = "For collaboration and projects contact me at jessieconnralph.official@gmail.com";
+                            let i = 0;
+                            const speed = 50; 
+                            const typingEffect = document.getElementById("typing-effect");
+
+                            function typeWriter() {
+                                if (i < text.length) {
+                                    typingEffect.innerHTML += text.charAt(i);
+                                    i++;
+                                    setTimeout(typeWriter, speed);
+                                } else {
+                                    // Pause before starting the loop again
+                                    setTimeout(() => {
+                                        i = 0;
+                                        typingEffect.innerHTML = ""; // Clear the text
+                                        typeWriter(); // Start the typing effect again
+                                    }, 2000); // Adjust pause duration here (2 seconds in this case)
+                                }
+                            }
+
+                            typeWriter();
+                        });
+
+                        </script>
                     </div>
 
                 </div>
@@ -664,7 +689,7 @@
     <footer id="landing-footer" class="clearfix">
         <div class="row clearfix">
 
-            <p id="copyright" class="col-2">2024 | © <a href="https://www.facebook.com/profile.php?id=100011133108328">Jessie Sam</a></p>
+            <p id="copyright" class="col-2">2024 | © <a href="https://www.facebook.com/profile.php?id=100011133108328">Jessie Sam| </a> <small id="typing-effect"></small></p>
             <ul class="col-2 social-icons">
                 <li>
                     <a target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100011133108328">
