@@ -1,0 +1,111 @@
+{
+  "title": "System Design Concepts",
+  "chapters": [
+    {
+      "id": 1,
+      "chapter_label": "Chapter 1",
+      "title": "Single Server Setup",
+      "reference": {
+        "url": "https://youtu.be/BEgMLvEy0Do?si=nDkhNuCdeUBNvRxN",
+        "label": "Reference & video"
+      },
+      "image": "images/BLOG/FIGURE1.png",
+      "content": [
+        "Building a system starts small, like taking the first step on a long journey. At the beginning, everything runs on one server: the web app, the database, cache, and more.",
+        "Users access the website using a domain name, like <strong>api.sample.com</strong>. The DNS service gives them the server's IP address. The browser or mobile app then sends an HTTP request to that IP, and the server responds with HTML pages or JSON data for the app to display.",
+        "Traffic comes from two main sources: web applications, which use server-side languages like Java or Python to handle logic and HTML/JavaScript to show pages, and mobile applications, which communicate via HTTP and usually receive data in simple JSON format.",
+        "The key idea is to start simple with one server and understand how requests travel from users to your system."
+      ],
+      "steps": [
+        "User visits a website using a domain name, like <strong>api.sample.com</strong>.",
+        "The Domain Name System (DNS) provides the server's IP address (e.g., 12.123.12.123).",
+        "The browser or mobile app sends an HTTP request to the server's IP address.",
+        "The web server processes the request and responds with HTML pages or JSON data.",
+        {
+          "text": "For web applications:",
+          "sub": [
+            "Server-side languages (like Java, Python) handle business logic and storage.",
+            "Client-side languages (HTML, JavaScript) handle what users see on their screens."
+          ]
+        },
+        {
+          "text": "For mobile applications:",
+          "sub": [
+            "HTTP is used to communicate with the server.",
+            "JSON is commonly used to send and receive data because it is simple."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "chapter_label": null,
+      "title": "Database",
+      "reference": {
+        "url": "https://roadmap.sh/sql",
+        "label": "Reference & video"
+      },
+      "image": "images/BLOG/FIGURE2.png",
+      "content": [
+        "As more people use a system, one server is not enough, so we use multiple servers: one for handling website and mobile traffic, and another for storing data in a database. For databases, you can choose between relational (SQL) databases like MySQL or PostgreSQL, which organize data in tables and are good for most apps, or non-relational (NoSQL) databases like MongoDB or DynamoDB, which might be the right choice if your application needs super-fast responses, your data is unstructured or doesn't fit into tables, you only need to store and read data in formats like JSON, XML, or YAML, or you need to store a huge amount of data that grows quickly."
+      ],
+      "steps": []
+    },
+    {
+      "id": 3,
+      "chapter_label": null,
+      "title": "Vertical scaling vs horizontal scaling",
+      "reference": {
+        "url": "https://www.geeksforgeeks.org/system-design/system-design-horizontal-and-vertical-scaling/",
+        "label": "Reference & video"
+      },
+      "image": "images/BLOG/scaling-type.webp",
+      "content": [
+        "Vertical scaling, or scaling up, means making a single server stronger by adding more CPU, memory, or other resources. Horizontal scaling, or scaling out, means adding more servers so they can share the work. Scaling up is simple and works well when there are few users, but a single server can only be so powerful and if it stops working, the website stops too. Scaling out is better for big systems because it can handle many users and keeps the website running even if one server fails. In the old setup, users connect to only one web server, so if it is too busy or goes offline, the website becomes slow or stops working. A load balancer helps by sending users to different servers so the website stays fast and always works."
+      ],
+      "steps": []
+    },
+    {
+      "id": 4,
+      "chapter_label": null,
+      "title": "Load Balancer",
+      "reference": {
+        "url": "https://www.youtube.com/watch?v=LQuuoHTyYz8",
+        "label": "Reference & video"
+      },
+      "image": "images/BLOG/Load_Balancing_b21da2629a.png",
+      "content": [
+        "A load balancer helps by sharing incoming traffic evenly among all the web servers. Users connect to the load balancer instead of connecting directly to the servers. The load balancer uses private IP addresses to talk to the servers, which makes the system more secure because private IPs cannot be reached from the internet. With a load balancer and multiple web servers, if one server stops working, the traffic is sent to the other servers so the website does not go offline. If more people visit the website, you can add more servers, and the load balancer will automatically send requests to the new servers. This makes the web part of the system stronger and more reliable. For the database, there is still only one server, so we need database replication to make sure the data is safe and available even if one database goes down."
+      ],
+      "steps": []
+    },
+    {
+      "id": 5,
+      "chapter_label": null,
+      "title": "Database Replication",
+      "reference": {
+        "url": "https://www.techtarget.com/searchdatamanagement/definition/database-replication",
+        "label": "Reference & video"
+      },
+      "image": "images/BLOG/Screenshot 2026-04-03 074505.png",
+      "content": [
+        "Database replication in a master-slave model works by having a single master database handle all write operations (insert, update, delete), while multiple slave databases handle read operations, improving overall system performance since most applications perform more reads than writes. This setup enhances reliability and high availability because data is copied across multiple servers, ensuring access even if one fails. If a slave database goes offline, read requests are redirected to other slaves or temporarily to the master, and if the master fails, a slave is promoted to take its place, though this can be complex if data is not fully up to date. Combined with a load balancer, user requests are distributed to web servers that read from slaves and send write operations to the master, and further performance improvements can be achieved by adding caching and using a CDN for static content."
+      ],
+      "steps": []
+    },
+    {
+      "id": 6,
+      "chapter_label": null,
+      "title": "Cache",
+      "reference": {
+        "url": "https://en.wikipedia.org/wiki/Cache_(computing)",
+        "label": "Reference & video"
+      },
+      "image": "images/BLOG/How-Web-Cache-Works.png",
+      "content": [
+        "A cache is a temporary storage area that stores the result of expensive responses or frequently accessed data in memory so that subsequent requests are served more quickly. Every time a new web page loads, one or more database calls are executed to fetch data. The application performance is greatly affected by calling the database repeatedly. The cache can mitigate this problem by storing the result of expensive database queries in memory, so that subsequent requests can be served more quickly without hitting the database. Caches are typically used to store frequently accessed data, such as user sessions, product information, or search results. By using a cache, you can significantly reduce the load on your database and improve the overall performance of your application."
+      ],
+      "steps": []
+    }
+  ]
+}
