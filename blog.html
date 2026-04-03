@@ -69,11 +69,11 @@
 
                         <!--Social Icons in Header-->
                         <ul class="social-icons">
-                            <li>
+                            <!-- <li>
                                 <a target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100011133108328">
                                     <i class="fa fa-facebook fa-1x"></i><span>Facebook</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a target="_blank" title="github" href="https://github.com/jessieconnralphsam">
                                     <i class="fa fa-github fa-1x"></i><span>GitHub</span>
@@ -84,7 +84,7 @@
                                     <i class="fa fa-envelope fa-1x"></i><span>Gmail</span>
                                 </a>
                             </li>                            
-                            <li>
+                            <!-- <li>
                                 <a target="_blank" title="Twitter" href="">
                                     <i class="fa fa-twitter fa-1x"></i><span>Twitter</span>
                                 </a>
@@ -93,7 +93,7 @@
                                 <a target="_blank" title="Instagram" href="">
                                     <i class="fa fa-instagram fa-1x"></i><span>Instagram</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                         <!--End of Social Icons in Header-->
 
@@ -379,6 +379,31 @@
                 </div>
                 
             </div>
+            <div class="row no-padding-bottom clearfix">
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
+
+                    <blockquote class="testimonial text-right bigtest">
+                        <a target="_blank" title="roadmap" href="https://www.techtarget.com/searchdatamanagement/definition/database-replication">
+                            <span>https://www.techtarget.com/searchdatamanagement/definition/database-replication</span>
+                        </a>
+                        <footer>| Reference & video</footer>
+                    </blockquote>
+                </div>
+                
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="section-heading">
+                        <h2 class="section-title">Database Replication</h2>
+                        <p></p>
+                    </div>
+                    <p>
+                        Database replication in a master-slave model works by having a single master database handle all write operations (insert, update, delete), while multiple slave databases handle read operations, improving overall system performance since most applications perform more reads than writes. This setup enhances reliability and high availability because data is copied across multiple servers, ensuring access even if one fails. If a slave database goes offline, read requests are redirected to other slaves or temporarily to the master, and if the master fails, a slave is promoted to take its place, though this can be complex if data is not fully up to date. Combined with a load balancer, user requests are distributed to web servers that read from slaves and send write operations to the master, and further performance improvements can be achieved by adding caching and using a CDN for static content.
+                    </p>
+                </div>
+                <div class="col-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <img src="images/BLOG/Screenshot 2026-04-03 074505.png" alt="figure1" style="margin-bottom: 20px;">
+                </div>
+                
+            </div>
         </div>
     </main>
 
@@ -389,11 +414,11 @@
 
             <p id="copyright" class="col-2">2024 | © <a href="https://www.facebook.com/profile.php?id=100011133108328">Jessie Sam</a></p>
             <ul class="col-2 social-icons">
-                <li>
+                <!-- <li>
                     <a target="_blank" title="Facebook" href="https://www.facebook.com/profile.php?id=100011133108328">
                         <i class="fa fa-facebook fa-1x"></i><span>Facebook</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a target="_blank" title="github" href="https://github.com/jessieconnralphsam">
                         <i class="fa fa-github fa-1x"></i><span>GitHub</span>
@@ -404,7 +429,7 @@
                         <i class="fa fa-envelope fa-1x"></i><span>Gmail</span>
                     </a>
                 </li>                 
-                <li>
+                <!-- <li>
                     <a target="_blank" title="Twitter" href="">
                         <i class="fa fa-twitter fa-1x"></i><span>Twitter</span>
                     </a>
@@ -413,7 +438,7 @@
                     <a target="_blank" title="Instagram" href="">
                         <i class="fa fa-instagram fa-1x"></i><span>Instagram</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </footer>
